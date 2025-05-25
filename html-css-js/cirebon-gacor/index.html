@@ -9,20 +9,25 @@
     />
     <link rel="stylesheet" href="style.css" />
     <link rel="shortcut icon" href="img/cirebonGacor.svg" type="image/x-icon" />
-    <script type="text/javascript" src="jquery.js"></script>
-    <script src="jquery.js"></script>
     <title>Cirebon Gacor</title>
   </head>
   <body>
     <!-- Header -->
     <header>
-      <a href="#" class="logo">Cirebon Gacor</a>
+      <a href="#" class="logo animasi-kanan">Cirebon Gacor</a>
 
-      <!-- Hamburger toggle -->
+      <!-- <input type="checkbox" id="menu-toggle" />
+      <label for="menu-toggle" class="hamburger">&#9776;</label> -->
+
       <input type="checkbox" id="menu-toggle" />
-      <label for="menu-toggle" class="hamburger">&#9776;</label>
+      <label for="menu-toggle" class="hamburger">
+        <span class="icon-open">&#9776;</span>
+        <!-- ≡ -->
+        <span class="icon-close">&#120;</span>
+        <!-- × -->
+      </label>
 
-      <nav class="nav-menu">
+      <nav class="nav-menu animasi-kiri">
         <a href="#">Beranda</a>
         <a href="#sejarah">Sejarah</a>
         <a href="#kesenian">Kesenian</a>
@@ -36,41 +41,53 @@
     <section class="home">
       <div class="home-img">
         <img
-          src="img/cirebonGacor.png"
+          src="img/png/rm_logo.png"
           alt="Logo Cirebon Gacor"
           srcset=""
           sizes="(max-width: 600px) 480px, (max-width: 900px) 768px, 1200px"
         />
       </div>
       <div class="home-content">
-        <h1>CIREBON</h1>
-        <h3 class="typing-text">GACOR <span></span></h3>
-        <p>
+        <h1 class="animasi-bawah">CIREBON</h1>
+        <div class="mengetik">
+          <h1 class="gacor">Gacor <span class="mengetik-kata"></span></h1>
+        </div>
+        <p class="animasi-kanan">
           Cirebon Gacor adalah platform informasi yang menyajikan berbagai hal
-          tentang Kota Cirebon — mulai dari sejarah, budaya, hingga kuliner khas
-          yang menggugah selera.
+          tentang Kota Cirebon — mulai dari sejarah, kesenian, wisata, hingga
+          kuliner khas yang menggugah selera.
         </p>
         <div class="social-icons">
-          <a href="#sejarah" title="Sejarah"
+          <a href="#sejarah" title="Sejarah" class="animasi-bawah"
             ><i class="fa-solid fa-earth-asia"></i
           ></a>
-          <a href="#kesenian" title="Kesenian">
+          <a href="#kesenian" title="Kesenian" class="animasi-atas">
             <i class="fa-solid fa-masks-theater"></i>
           </a>
-          <a href="#kuliner" title="Kuliner">
+          <a href="#kuliner" title="Kuliner" class="animasi-bawah">
             <i class="fa-solid fa-utensils"></i>
           </a>
-          <a href="#wisata" title="Wisata">
+          <a href="#wisata" title="Wisata" class="animasi-atas">
             <i class="fa-solid fa-route"></i>
           </a>
         </div>
-        <a href="#sejarah" class="btn">Ayo Mulai</a>
+        <a href="#sejarah" class="btn animasi-atas">Ayo Mulai</a>
       </div>
       <div class="home-awan">
-        <img src="img/awan-icon.svg" alt="Awan" class="awan-1 " id="animated-kiri" />
-        <img src="img/awan-icon.svg" alt="Awan" class="awan-2" id="animated-kanan"/>
         <img
-          src="img/tari-topeng-bg.png"
+          src="img/svg/awan-icon.svg"
+          alt="Awan"
+          class="awan-1"
+          id="animated-kiri"
+        />
+        <img
+          src="img/svg/awan-icon.svg"
+          alt="Awan"
+          class="awan-2"
+          id="animated-kanan"
+        />
+        <img
+          src="img/png/tari-topeng-bg.png"
           alt="Tari Topeng"
           class="tari-topeng"
         />
@@ -103,21 +120,13 @@
     <!-- End Sejarah -->
 
     <!-- Kesenian -->
-    <section id="kesenian">
-      <h1>Kesenian</h1>
-    </section>
     <!-- End Kesenian -->
 
     <!-- Kuliner -->
-    <section id="kuliner">
-      <h1>Kuliner</h1>
-    </section>
     <!-- End Kuliner -->
 
     <!-- Wisata -->
-    <section id="wisata">
-      <h1>Wisata</h1>
-    </section>
     <!-- End Wisata -->
+    <script src="js/script.js"></script>
   </body>
 </html>

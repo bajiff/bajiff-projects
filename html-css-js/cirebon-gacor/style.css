@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Ancizar+Sans:ital,wght@0,100..1000;1,100..1000&family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Playwrite+DK+Loopet:wght@100..400&display=swap');
 
 :root {
-    --primary: #d6d8db;
+    --primary: #eeede9;
     --secondary: #e30014;
     --tertiary: #e06e30;
     --text: #162144;
@@ -14,12 +14,14 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    list-style-type: none;
     text-decoration: none;
     border: none;
     outline: none;
     font-family: var(--body-font);
     scroll-behavior: smooth;
 }
+
 
 html {
     font-size: 60%;
@@ -37,7 +39,6 @@ body {
 body::selection {
     background-color: var(--tertiary);
     color: var(--primary);
-
 }
 
 
@@ -46,7 +47,7 @@ header {
     left: 0;
     width: 100%;
     display: flex;
-    z-index: 100;
+    z-index: 10;
     margin-top: 20px;
     padding: 1rem 9%;
     position: fixed;
@@ -59,18 +60,21 @@ header {
 
 
 
+
 .logo {
     font-size: 3rem;
     color: var(--text);
     font-weight: 800;
     cursor: pointer;
     transition: 0.5s ease;
+
     font-family: 'Playwrite DK Loopet', sans-serif;
 }
 
 .logo:hover {
     transform: scale(1.1);
     color: var(--tertiary);
+    filter: drop-shadow(0px 0px 20px var(--tertiary));
 }
 
 
@@ -127,6 +131,8 @@ nav a.active {
 section {
     min-height: 100vh;
     padding: 8rem 9% 5rem;
+    font-size: 2rem;
+
 }
 
 .home {
@@ -135,7 +141,6 @@ section {
     align-items: center;
     gap: 2rem;
     background-color: var(--primary);
-    /* background-color: blue; */
 }
 
 @keyframes zoomIn {
@@ -152,6 +157,35 @@ span {
 .home-content h3 {
     font-size: 4rem;
     font-weight: 700;
+}
+
+.home-content .mengetik-kata {
+    color: var(--tertiary);
+    text-shadow: 0 0 5px var(--tertiary);
+}
+
+.home-content .mengetik .gacor {
+    font-family: var(--body-font);
+}
+
+.home-content .mengetik-kata::after {
+    border-right: 5px solid var(--tertiary);
+    content: '';
+    animation: blink .5s infinite;
+}
+
+@keyframes blink {
+    0% {
+        border-right-color: transparent;
+    }
+
+    50% {
+        border-right-color: var(--tertiary);
+    }
+
+    100% {
+        border-right-color: transparent;
+    }
 }
 
 .home-content p {
@@ -182,6 +216,11 @@ span {
     font-family: "Crimson Text";
 }
 
+.home-content .animasi-kanan {
+    transform: translateX(50px);
+    opacity: 0;
+    animation: zoomIn 1s ease forwards;
+}
 
 .home-awan .awan-1 {
     width: 20%;
@@ -194,22 +233,32 @@ span {
     right: 0;
     right: 5%;
     z-index: 1;
-
 }
-/* 
-#animated-kiri {
-    transform: translateY(30px);
+
+.animasi-atas {
+    transform: translateY(50px);
     opacity: 0;
     animation: zoomIn 1s ease forwards;
 
 }
 
-#animated-kanan {
-    transform: translateY(30px);
+.animasi-bawah {
+    transform: translateY(-50px);
     opacity: 0;
     animation: zoomIn 1s ease forwards;
+}
 
-} */
+.animasi-kiri {
+    transform: translateX(50px);
+    opacity: 0;
+    animation: zoomIn 1s ease forwards;
+}
+
+.animasi-kanan {
+    transform: translateX(-50px);
+    opacity: 0;
+    animation: zoomIn 1s ease forwards;
+}
 
 .home-awan .awan-2 {
     width: 20%;
@@ -261,7 +310,6 @@ span {
 
     .home {
         flex-direction: column;
-        margin: 5rem 4rem;
     }
 
     .home .home-content h1 {
@@ -318,7 +366,6 @@ span {
 @media (max-width: 550px) {
     .home {
         flex-direction: column;
-        margin: 5rem 4rem;
     }
 }
 
@@ -364,6 +411,8 @@ span {
     font-weight: 600;
     transition: 0.3s ease-in-out;
     cursor: pointer;
+    filter: drop-shadow(0px 0px 20px var(--tertiary));
+    text-transform: uppercase;
 }
 
 .btn:hover {
@@ -373,81 +422,19 @@ span {
     box-shadow: 0 0 25px var(--tertiary);
 }
 
-.typing-text {
-    font-size: 34px;
-    font-weight: 600;
-    min-width: 280px;
-}
 
-.typing-text span {
-    position: relative;
-}
-
-.typing-text span::before {
-    content: "Gacor";
-    color: var(--tertiary);
-    animation: words 15s infinite;
-}
-
-.typing-text span::after {
-    content: "";
-    position: absolute;
-    width: calc(100% + 8px);
-    height: 100%;
-    right: -8;
-    animation: cursor 1000ms infinite;
-}
-
-
-
-@keyframes cursor {
-    to {
-        border-left: 3px solid var(--tertiary);
-    }
-}
-
-@keyframes words {
-
-    0%,
-    20% {
-        content: "Generasi";
-    }
-
-    21%,
-    40% {
-        content: "Aktif";
-    }
-
-    41%,
-    60% {
-        content: "Cerdas";
-    }
-
-    61%,
-    80% {
-        content: "Optimis";
-    }
-
-    81%,
-    100% {
-        content: "Religius";
-    }
-}
-
-section {
-    font-size: 2rem;
-}
 
 section p {
     font-size: 1.7rem;
 }
 
 /* Sejarah */
+
 .sejarah-container {
     width: 100%;
     height: 100vh;
     margin-top: 50px;
-    margin-bottom: 50px;
+
 }
 
 .card-hover {
@@ -489,28 +476,23 @@ section p {
     transform: translateY(0);
 }
 
-
-
-
-
-
-
+/* Yang ini bisa dihapus */
 /* Sembunyikan checkbox */
-#menu-toggle {
+/* #menu-toggle {
     display: none;
-}
+} */
 
 /* Gaya ikon hamburger */
-.hamburger {
+/* .hamburger {
     display: none;
     font-size: 3.5rem;
     cursor: pointer;
     z-index: 101;
     color: var(--text);
-}
+} */
 
 /* Responsive: Tampilkan hamburger di layar kecil */
-@media (max-width: 995px) {
+/* @media (max-width: 995px) {
     .hamburger {
         display: block;
         margin-left: auto;
@@ -536,6 +518,7 @@ section p {
         display: flex;
     }
 
+
     nav a {
         display: block;
         margin: 2rem 0;
@@ -545,5 +528,77 @@ section p {
     nav a:hover,
     nav a.active {
         border-bottom: 0.3rem solid var(--tertiary);
+    }
+} */
+/* End Yang ini bisa dihapus */
+
+
+/* Mulai */
+#menu-toggle {
+    display: none;
+}
+
+.hamburger {
+    display: none;
+    font-size: 3.5rem;
+    cursor: pointer;
+    z-index: 101;
+    color: var(--text);
+}
+
+.hamburger span {
+    transition: opacity 0.3s ease;
+}
+
+/* Responsive */
+@media (max-width: 995px) {
+    .hamburger {
+        display: block;
+        margin-left: auto;
+    }
+
+    nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        right: 9%;
+        width: 60%;
+        background-color: var(--primary);
+        border-left: 3px solid var(--tertiary);
+        border-bottom: 3px solid var(--tertiary);
+        border-bottom-left-radius: 2rem;
+        padding: 2rem;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        flex-direction: column;
+        z-index: 100;
+    }
+
+    nav.show {
+        display: flex;
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    nav a {
+        display: block;
+        font-size: 2rem;
+    }
+
+    nav a:hover,
+    nav a.active {
+        border-bottom: 0.3rem solid var(--tertiary);
+    }
+
+    /* Toggle icon */
+    .icon-close {
+        display: none;
+    }
+
+    .hamburger.active .icon-open {
+        display: none;
+    }
+
+    .hamburger.active .icon-close {
+        display: inline;
     }
 }
