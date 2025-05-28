@@ -4,6 +4,7 @@
     --primary: #eeede9;
     --secondary: #e30014;
     --tertiary: #e06e30;
+    --quarternary: #e7e6e6;
     --text: #162144;
     --logo-font: 'Playwrite DK Loopet',
         --nav-font: 'Ancizar Sans';
@@ -95,38 +96,7 @@ nav a.active {
     border-bottom: 3px solid var(--tertiary);
 }
 
-@media(max-width:995px) {
-    nav {
-        position: absolute;
-        display: none;
-        top: 0;
-        right: 0;
-        width: 40%;
-        border-left: 3px solid var(--tertiary);
-        border-bottom: 3px solid var(--tertiary);
-        border-bottom-left-radius: 2rem;
-        padding: 1rem solid;
-        background-color: #161616;
-        border-top: 0.1rem solid rgba(0, 0, 0, 0.1);
-    }
 
-    nav.active {
-        display: block;
-    }
-
-    nav a {
-        display: block;
-        font-size: 2rem;
-        margin: 3rem 0;
-    }
-
-    nav a:hover,
-    nav a.active {
-        padding: 1rem;
-        border-radius: 0.5rem;
-        border-bottom: 0.5rem solid var(--tertiary);
-    }
-}
 
 section {
     min-height: 100vh;
@@ -135,6 +105,8 @@ section {
 
 }
 
+
+/* Beranda */
 .home {
     display: flex;
     justify-content: center;
@@ -143,12 +115,6 @@ section {
     background-color: var(--primary);
 }
 
-@keyframes zoomIn {
-    100% {
-        transform: translateY(0);
-        opacity: 1;
-    }
-}
 
 span {
     color: var(--tertiary);
@@ -157,6 +123,12 @@ span {
 .home-content h3 {
     font-size: 4rem;
     font-weight: 700;
+}
+
+.mengetik-gacor {
+    display: inline-block;
+    color: var(--text);
+    animation: geserAtas 1s ease-out forwards;
 }
 
 .home-content .mengetik-kata {
@@ -172,20 +144,6 @@ span {
     border-right: 5px solid var(--tertiary);
     content: '';
     animation: blink .5s infinite;
-}
-
-@keyframes blink {
-    0% {
-        border-right-color: transparent;
-    }
-
-    50% {
-        border-right-color: var(--tertiary);
-    }
-
-    100% {
-        border-right-color: transparent;
-    }
 }
 
 .home-content p {
@@ -205,7 +163,7 @@ span {
     box-shadow: 0 0 25px var(--tertiary);
     cursor: pointer;
     transition: 0.2s linear;
-    animation: bounce 2s infinite;
+    animation: geserAtas 1.5s ease forwards, bounce 2s infinite 1.5s;
 }
 
 
@@ -222,152 +180,130 @@ span {
     animation: zoomIn 1s ease forwards;
 }
 
+
 .home-awan .awan-1 {
     width: 20%;
     position: absolute;
     right: -5%;
-    transition: 3s ease-in-out cubic-bezier(0.075, 0.82, 0.165, 1);
-    animation: bounce 6.6s infinite;
+    transition: filter 0.8s ease;
+    animation:
+        geserKanan 1s ease forwards,
+        bounce 6.6s ease-in-out infinite 2.5s;
     filter: drop-shadow(0px 0px 10px var(--tertiary));
-    bottom: 0;
-    right: 0;
-    right: 5%;
+    bottom: -5%;
+    right: 7%;
     z-index: 1;
 }
 
-.animasi-atas {
-    transform: translateY(50px);
-    opacity: 0;
-    animation: zoomIn 1s ease forwards;
-
-}
-
-.animasi-bawah {
-    transform: translateY(-50px);
-    opacity: 0;
-    animation: zoomIn 1s ease forwards;
-}
-
-.animasi-kiri {
-    transform: translateX(50px);
-    opacity: 0;
-    animation: zoomIn 1s ease forwards;
-}
-
-.animasi-kanan {
-    transform: translateX(-50px);
-    opacity: 0;
-    animation: zoomIn 1s ease forwards;
+.home-awan .awan-1:hover {
+    filter: drop-shadow(0 0 50px var(--tertiary));
 }
 
 .home-awan .awan-2 {
     width: 20%;
     position: absolute;
-    transition: 3s ease-in-out cubic-bezier(0.075, 0.82, 0.165, 1);
-    animation: bounce 7s infinite;
+    transition: filter 0.8s ease;
+    animation:
+        geserKiri 1.5s ease forwards,
+        bounce 7s ease-in-out infinite 2.5s;
     filter: drop-shadow(0px 0px 10px var(--tertiary));
-    bottom: 0;
-    right: -5%;
-    right: 0;
+    bottom: -5%;
+    right: -1%;
     z-index: 2;
 }
 
+.home-awan .awan-2:hover {
+    filter: drop-shadow(0 0 50px var(--tertiary));
+}
+
+.home-awan .awan-3 {
+    width: 20%;
+    position: absolute;
+    transition: filter 0.8s ease;
+    animation:
+        geserKanan 1.5s ease forwards,
+        bounce 7s ease-in-out infinite 2.5s;
+    filter: drop-shadow(0px 0px 10px var(--tertiary));
+    bottom: -0.9%;
+    left: 0;
+    z-index: 2;
+}
+
+.home-awan .awan-3:hover {
+    filter: drop-shadow(0 0 50px var(--tertiary));
+}
+
+.home-awan .awan-4 {
+    width: 20%;
+    position: absolute;
+    transition: filter 0.8s ease;
+    animation:
+        geserKiri 1.5s ease forwards,
+        bounce 6.6s ease-in-out infinite 2.5s;
+    filter: drop-shadow(0px 0px 10px var(--tertiary));
+    bottom: -2%;
+    left: 15%;
+    z-index: 1;
+}
+
+.home-awan .awan-4:hover {
+    filter: drop-shadow(0 0 50px var(--tertiary));
+}
+
+.home-awan .awan-5 {
+    width: 20%;
+    position: absolute;
+    transition: filter 0.8s ease;
+    animation:
+        geserKanan 1.5s ease forwards,
+        bounce 7s ease-in-out infinite 2.5s;
+    filter: drop-shadow(0px 0px 10px var(--tertiary));
+    top: 10%;
+    right: 15%;
+
+
+    z-index: 2;
+}
+
+.home-awan .awan-5:hover {
+    filter: drop-shadow(0 0 50px var(--tertiary));
+}
+
+.home-awan .awan-6 {
+    width: 20%;
+    position: absolute;
+    transition: filter 0.8s ease;
+    animation:
+        geserKiri 1.5s ease forwards,
+        bounce 6.6s ease-in-out infinite 2.5s;
+    filter: drop-shadow(0px 0px 10px var(--tertiary));
+    top: 10%;
+    right: 0;
+    z-index: 1;
+}
+
+.home-awan .awan-6:hover {
+    filter: drop-shadow(0 0 50px var(--tertiary));
+}
+
+
 .home-awan .tari-topeng {
+    animation: geserAtas 1.5s ease forwards, bounce 7s ease-in-out infinite 3s;
     width: 21%;
     position: absolute;
-    transition: 3s ease-in-out cubic-bezier(0.075, 0.82, 0.165, 1);
-    animation: bounce 7s infinite;
+    transition: filter 0.8s ease;
     filter: drop-shadow(0px 0px 10px var(--tertiary));
     bottom: 0;
     right: -5%;
     right: 1%;
     z-index: 0;
-
 }
 
-@keyframes bounce {
-    0% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-20px);
-    }
-
-    100% {
-        transform: translateY(0);
-    }
+.home-awan .tari-topeng:hover {
+    filter: drop-shadow(0 0 50px var(--tertiary));
 }
 
 
-/* Layar > 550px */
-@media (min-width: 551px) {
-    .home-img img {
-        width: 200px;
-        gap: 3rem;
-
-    }
-
-    .home {
-        flex-direction: column;
-    }
-
-    .home .home-content h1 {
-        font-size: 6rem;
-    }
-}
-
-/* Layar > 680px */
-@media (min-width: 681px) {
-
-    .home {
-        flex-direction: column;
-    }
-
-    .home-img img {
-        width: 300px;
-        gap: 4rem;
-
-    }
-
-    .home .home-content h1 {
-        font-size: 6rem;
-    }
-
-    .home .home-content h3 {
-        font-size: 4rem;
-    }
-}
-
-/* Layar > 768px */
-@media (min-width: 769px) {
-    .home {
-        gap: 4rem;
-        flex-direction: row;
-
-    }
-
-    .home-img img {
-        width: 400px;
-        gap: 5rem;
-
-    }
-
-    .home .home-content h1 {
-        font-size: 6rem;
-    }
-
-    .home .home-content h3 {
-        font-size: 4rem;
-    }
-}
-
-/* Atur ulang layout home (khusus layar kecil) */
-@media (max-width: 550px) {
-    .home {
-        flex-direction: column;
-    }
-}
 
 
 
@@ -406,7 +342,7 @@ span {
     background-color: var(--text);
     border-radius: 4rem;
     font-size: 1.6rem;
-    color: var(--tertiary);
+    color: #ffd3bc;
     letter-spacing: 0.3rem;
     font-weight: 600;
     transition: 0.3s ease-in-out;
@@ -429,6 +365,9 @@ section p {
 }
 
 /* Sejarah */
+#sejarah {
+    background-color: var(--quarternary);
+}
 
 .sejarah-container {
     width: 100%;
@@ -476,61 +415,8 @@ section p {
     transform: translateY(0);
 }
 
-/* Yang ini bisa dihapus */
-/* Sembunyikan checkbox */
-/* #menu-toggle {
-    display: none;
-} */
+/* End Sejarah */
 
-/* Gaya ikon hamburger */
-/* .hamburger {
-    display: none;
-    font-size: 3.5rem;
-    cursor: pointer;
-    z-index: 101;
-    color: var(--text);
-} */
-
-/* Responsive: Tampilkan hamburger di layar kecil */
-/* @media (max-width: 995px) {
-    .hamburger {
-        display: block;
-        margin-left: auto;
-    }
-
-    nav {
-        display: none;
-        position: absolute;
-        top: 100%;
-        right: 9%;
-        width: 60%;
-        background-color: var(--primary);
-        border-left: 3px solid var(--tertiary);
-        border-bottom: 3px solid var(--tertiary);
-        border-bottom-left-radius: 2rem;
-        padding: 2rem;
-        box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-        flex-direction: column;
-        z-index: 100;
-    }
-
-    #menu-toggle:checked+.hamburger+nav {
-        display: flex;
-    }
-
-
-    nav a {
-        display: block;
-        margin: 2rem 0;
-        font-size: 2rem;
-    }
-
-    nav a:hover,
-    nav a.active {
-        border-bottom: 0.3rem solid var(--tertiary);
-    }
-} */
-/* End Yang ini bisa dihapus */
 
 
 /* Mulai */
@@ -550,27 +436,48 @@ section p {
     transition: opacity 0.3s ease;
 }
 
-/* Responsive */
+/* ---------- LAYAR KECIL / MOBILE (<= 995px) ---------- */
 @media (max-width: 995px) {
+
+    /* Hamburger icon */
     .hamburger {
         display: block;
         margin-left: auto;
+        font-size: 2.5rem;
+        cursor: pointer;
+        z-index: 101;
+        color: var(--text);
     }
 
+    .icon-close {
+        display: none;
+    }
+
+    .hamburger.active .icon-open {
+        display: none;
+    }
+
+    .hamburger.active .icon-close {
+        display: inline;
+    }
+
+    /* Menu navigasi */
     nav {
         display: none;
         position: absolute;
         top: 100%;
         right: 9%;
         width: 60%;
+        padding: 2rem;
+        flex-direction: column;
         background-color: var(--primary);
         border-left: 3px solid var(--tertiary);
         border-bottom: 3px solid var(--tertiary);
         border-bottom-left-radius: 2rem;
-        padding: 2rem;
+        border-top: 0.1rem solid rgba(0, 0, 0, 0.1);
         box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-        flex-direction: column;
         z-index: 100;
+        transition: all 0.3s ease;
     }
 
     nav.show {
@@ -582,23 +489,166 @@ section p {
     nav a {
         display: block;
         font-size: 2rem;
+        margin: 2rem 0;
     }
 
     nav a:hover,
     nav a.active {
-        border-bottom: 0.3rem solid var(--tertiary);
+        padding: 1rem;
+        border-radius: 0.5rem;
+        border-bottom: 0.5rem solid var(--tertiary);
     }
 
-    /* Toggle icon */
-    .icon-close {
-        display: none;
+    .home {
+        margin-top: 50px;
+        flex-direction: column;
+        gap: 2rem;
+    }
+}
+
+/* ---------- LAYAR SEDANG - min-width: 551px ---------- */
+@media (min-width: 551px) {
+    .home {
+        flex-direction: column;
+        gap: 2rem;
     }
 
-    .hamburger.active .icon-open {
-        display: none;
+    .home-img img {
+        width: 200px;
     }
 
-    .hamburger.active .icon-close {
-        display: inline;
+    .home .home-content h1 {
+        font-size: 6rem;
+    }
+}
+
+/* ---------- LAYAR CUKUP BESAR - min-width: 681px ---------- */
+@media (min-width: 681px) {
+    .home-img img {
+        width: 300px;
+    }
+
+    .home .home-content h3 {
+        font-size: 4rem;
+    }
+}
+
+/* ---------- LAYAR LEBAR - min-width: 769px ---------- */
+@media (min-width: 769px) {
+    .home {
+        flex-direction: row;
+        gap: 4rem;
+    }
+
+    .home-img img {
+        width: 400px;
+    }
+}
+
+
+
+/* Kumpulan Animasi */
+.animasi-kiri {
+    transform: translateX(50px);
+    opacity: 0;
+    animation: zoomIn 1s ease forwards;
+}
+
+.animasi-kanan {
+    transform: translateX(-50px);
+    opacity: 0;
+    animation: zoomIn 1s ease forwards;
+}
+
+.animasi-atas {
+    transform: translateY(50px);
+    opacity: 0;
+    animation: zoomIn 1s ease forwards;
+
+}
+
+.animasi-bawah {
+    transform: translateY(-50px);
+    opacity: 0;
+    animation: zoomIn 1s ease forwards;
+}
+
+
+
+/* Kumpulan Keyframes */
+@keyframes geserKiri {
+    0% {
+        /* Mulai dari luar layar sebelah kanan */
+        transform: translateX(100%);
+        opacity: 0;
+    }
+
+    100% {
+        /* Ke posisi semula */
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes geserKanan {
+    0% {
+        /* Mulai dari luar layar sebelah kiri */
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+
+    100% {
+        /* Ke posisi semula */
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes geserAtas {
+    0% {
+        /* Mulai dari luar layar bawah */
+        transform: translateY(15%);
+        opacity: 0;
+    }
+
+    100% {
+        /* Ke posisi semula */
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes geserBawah {
+    0% {
+        /* Mulai dari luar layar atas */
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+
+    100% {
+        /* Ke posisi semula */
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes zoomIn {
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes bounce {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-30px);
+    }
+
+    100% {
+        transform: translateY(0);
     }
 }
