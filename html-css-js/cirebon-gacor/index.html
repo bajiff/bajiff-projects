@@ -7,7 +7,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="styles/index.css" />
     <link
       rel="shortcut icon"
       href="images/cirebonGacor.svg"
@@ -36,7 +36,7 @@
         <a href="#sejarah">Sejarah</a>
         <a href="#kesenian">Kesenian</a>
         <a href="#kuliner">Kuliner</a>
-        <a href="#wisata">Wisata</a>
+        <a href="#contact">Contact</a>
       </nav>
     </header>
     <!-- End Header -->
@@ -61,7 +61,7 @@
         </div>
         <p class="animasi-kanan">
           Cirebon Gacor adalah platform informasi yang menyajikan berbagai hal
-          tentang Kota Cirebon — mulai dari sejarah, kesenian, wisata, hingga
+          tentang Kota Cirebon — mulai dari sejarah, kesenian, contact, hingga
           kuliner khas yang menggugah selera.
         </p>
         <div class="social-icons">
@@ -74,8 +74,8 @@
           <a href="#kuliner" title="Kuliner" class="animasi-bawah">
             <i class="fa-solid fa-utensils"></i>
           </a>
-          <a href="#wisata" title="Wisata" class="animasi-atas">
-            <i class="fa-solid fa-route"></i>
+          <a href="#contact" title="Contact" class="animasi-atas">
+          <i class="fa-solid fa-square-phone"></i>  
           </a>
         </div>
         <a href="#sejarah" class="btn animasi-atas">Ayo Mulai</a>
@@ -132,32 +132,139 @@
           jiwa, dengan kepadatan 9.036 jiwa/km2.[2][5]
         </p>
         <div class="card-hover">
-          <img src="images/roundedLogo.png" alt="Tari Topeng" />
+          <img src="images/roundedLogo.svg" alt="Tari Topeng" />
           <div class="overlay">
             <p>
               Tari Topeng adalah tarian khas Cirebon yang sarat makna spiritual
               dan sejarah.
             </p>
+            <a
+              href="pages/kesenian.html"
+              target="_blank"
+              class="btn animasi-atas"
+              >Ayo Mulai</a
+            >
           </div>
         </div>
       </div>
     </section>
     <!-- End Sejarah -->
-    <!-- <div class="animated-text">
-      <img
-        src="images/svg/awan-icon.svg"
-        alt="Awan"
-        class="awan-coba"
-      />
-    </div> -->
+
     <!-- Kesenian -->
+    <div class="carousel" id="kesenian">
+      <div class="list">
+        <div
+          class="item"
+          style="
+            background-image: url(../images/kesenian/png/topeng-kelana-g-5.png);
+          "
+        >
+          <div class="content">
+            <div class="judul">TOPENG</div>
+            <div class="name">Kelana</div>
+            <div class="des">
+              Tari Topeng Klana Udeng adalah sebuah Tari Topeng gaya Indramayu,
+              kreasi dari Mimi Rasinah. Menurut beliau tari topeng klana ini
+              mengisahkan kesiapan Rahwana ketika maju perang.
+            </div>
+            <button>SELENGKAPNYA</button>
+          </div>
+        </div>
+
+        <div
+          class="item"
+          style="
+            background-image: url(../images/kesenian/png/topeng-panji-g-1.png);
+          "
+        >
+          <div class="content">
+            <div class="judul">TOPENG</div>
+            <div class="name">Panji</div>
+            <div class="des">
+              Topeng Panji menyimbolkan masa kanak-kanak. Oleh karena itu,
+              tarian ini ditampilkan dengan gerakan yang lembut layaknya
+              anak-anak.
+            </div>
+            <button>SELENGKAPNYA</button>
+          </div>
+        </div>
+
+        <div
+          class="item"
+          style="
+            background-image: url(../images/kesenian/png/topeng-samba-g-2.png);
+          "
+        >
+          <div class="content">
+            <div class="judul">TOPENG</div>
+            <div class="name">SAMBA</div>
+            <div class="des">
+              Tari Topeng Samba ditampilkan dengan gerakan yang lincah, lucu,
+              tapi kurang luwes. Topeng Samba juga menunjukkan tanda-tanda
+              keceriaan dan hidup yang bahagia.
+            </div>
+            <button>SELENGKAPNYA</button>
+          </div>
+        </div>
+
+        <div
+          class="item"
+          style="
+            background-image: url(../images/kesenian/png/topeng-rumyang-g-3.png);
+          "
+        >
+          <div class="content">
+            <div class="judul">TOPENG</div>
+            <div class="name">RUMYANG</div>
+            <div class="des">
+              Topeng Rumyang mewakili siklus hidup manusia dewasa. Ini
+              digambarkan melalui rupanya yang bersemu merah menandakan
+              kedewasaan. Begitu pula dengan gerakannya yang semakin mantap,
+              menunjukkan manusia yang mendekati kemapanan.
+            </div>
+            <button>SELENGKAPNYA</button>
+          </div>
+        </div>
+
+        <div
+          class="item"
+          style="
+            background-image: url(../images/kesenian/png/topeng-tumanggung-g-4.png);
+          "
+        >
+          <div class="content">
+            <div class="judul">TOPENG</div>
+            <div class="name">Tumanggung</div>
+            <div class="des">
+              Topeng Tumanggung menggambarkan kehidupan manusia yang sudah
+              memasuki fase dewasa dan mapan. Hal ditandai dengan gerakan tari
+              yang sangat dinamis.
+            </div>
+            <button>SELENGKAPNYA</button>
+          </div>
+        </div>
+      </div>
+
+      <!--next prev button-->
+      <div class="arrows">
+        <button class="prev">&#8592;</button>
+        <button class="next">&#8594;</button>
+      </div>
+
+      <!-- time running -->
+      <div class="timeRunning"></div>
+    </div>
+
     <!-- End Kesenian -->
 
     <!-- Kuliner -->
     <!-- End Kuliner -->
 
-    <!-- Wisata -->
-    <!-- End Wisata -->
+    <!-- Contact -->
+    <!-- End Contact -->
+
+    <!-- Coba Slider -->
+    <script src="../js/app.js"></script>
     <script src="js/script.js"></script>
   </body>
 </html>
