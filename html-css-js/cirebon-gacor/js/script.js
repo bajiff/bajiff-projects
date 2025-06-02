@@ -21,13 +21,13 @@ function typeWriter() {
 }
 
 function eraseText() {
-    if(charIndex > 0){
+    if (charIndex > 0) {
         textElement.innerHTML = texts[textIndex].substring(0, charIndex - 1);
         charIndex--;
         setTimeout(eraseText, speed);
-    } else{
+    } else {
         textIndex++;
-        if(textIndex >= texts.length){
+        if (textIndex >= texts.length) {
             textIndex = 0;
         }
         setTimeout(typeWriter, speed + 1000);
@@ -46,29 +46,104 @@ window.onload = typeWriter;
 
 
 document.addEventListener("DOMContentLoaded", function () {
-  const menuToggle = document.getElementById("menu-toggle");
-  const navMenu = document.querySelector("nav");
-  const hamburger = document.querySelector(".hamburger");
+    const menuToggle = document.getElementById("menu-toggle");
+    const navMenu = document.querySelector("nav");
+    const hamburger = document.querySelector(".hamburger");
 
-  function handleMenuToggle() {
-    if (menuToggle.checked) {
-      navMenu.classList.add("show");
-      hamburger.classList.add("active");
+    function handleMenuToggle() {
+        if (menuToggle.checked) {
+            navMenu.classList.add("show");
+            hamburger.classList.add("active");
+        } else {
+            navMenu.classList.remove("show");
+            hamburger.classList.remove("active");
+        }
+    }
+
+    // Saat toggle diklik
+    menuToggle.addEventListener("click", handleMenuToggle);
+
+    // Reset saat resize ke desktop
+    window.addEventListener("resize", function () {
+        if (window.innerWidth > 995) {
+            menuToggle.checked = false;
+            navMenu.classList.remove("show");
+            hamburger.classList.remove("active");
+        }
+    });
+});
+
+// Kesenian
+let nextBtn = document.querySelector('.next'),
+    prevBtn = document.querySelector('.prev'),
+    carousel = document.querySelector('.carousel'),
+    list = document.querySelector('.list'),
+    item = document.querySelectorAll('.item'),
+    runningTime = document.querySelector('.carousel .timeRunning')
+
+let timeRunning = 3000
+let timeAutoNext = 7000
+
+nextBtn.onclick = function () {
+    showSlider('next')
+}
+
+prevBtn.onclick = function () {
+    showSlider('prev')
+}
+
+let runTimeOut
+
+let runNextAuto = setTimeout(() => {
+    nextBtn.click()
+}, timeAutoNext)
+
+
+function resetTimeAnimation() {
+    runningTime.style.animation = 'none'
+    runningTime.offsetHeight /* trigger reflow */
+    runningTime.style.animation = null
+    runningTime.style.animation = 'runningTime 7s linear 1 forwards'
+}
+
+
+function showSlider(type) {
+    let sliderItemsDom = list.querySelectorAll('.carousel .list .item')
+    if (type === 'next') {
+        list.appendChild(sliderItemsDom[0])
+        carousel.classList.add('next')
     } else {
-      navMenu.classList.remove("show");
-      hamburger.classList.remove("active");
+        list.prepend(sliderItemsDom[sliderItemsDom.length - 1])
+        carousel.classList.add('prev')
     }
-  }
 
-  // Saat toggle diklik
-  menuToggle.addEventListener("click", handleMenuToggle);
+    clearTimeout(runTimeOut)
 
-  // Reset saat resize ke desktop
-  window.addEventListener("resize", function () {
-    if (window.innerWidth > 995) {
-      menuToggle.checked = false;
-      navMenu.classList.remove("show");
-      hamburger.classList.remove("active");
+    runTimeOut = setTimeout(() => {
+        carousel.classList.remove('next')
+        carousel.classList.remove('prev')
+    }, timeRunning)
+
+
+    clearTimeout(runNextAuto)
+    runNextAuto = setTimeout(() => {
+        nextBtn.click()
+    }, timeAutoNext)
+
+    resetTimeAnimation() // Reset the running time animation
+}
+
+// Start the initial animation 
+resetTimeAnimation()
+// End Kesenian
+
+// Scroll Biar ada 
+const header = document.querySelector("header");
+
+window.addEventListener("scroll", () => {
+    if (window.scrollY > 50) {
+        header.classList.add("scrolled");
+    } else {
+        header.classList.remove("scrolled");
     }
-  });
 });
