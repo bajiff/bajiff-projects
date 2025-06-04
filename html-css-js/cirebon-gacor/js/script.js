@@ -1,49 +1,79 @@
-const texts = [
+const textsBeranda = [
     "Generasi",
     "Aktif",
     "Cerdas",
     "Optimis",
     "Religius"
 ]
+const textsContact = [
+    "Web Developer",
+    "Laravel Developer",
+]
 
 let speed = 100;
-const textElement = document.querySelector(".mengetik-kata");
-let textIndex = 0;
-let charIndex = 0;
-function typeWriter() {
-    if (charIndex < texts[textIndex].length) {
-        textElement.innerHTML += texts[textIndex].charAt(charIndex);
-        charIndex++;
-        setTimeout(typeWriter, speed);
+const beranda_mengetik = document.querySelector(".mengetik-kata");
+const contact_mengetik = document.querySelector(".contact-mengetik");
+
+
+let textIndexBeranda = 0;
+let charIndexBeranda = 0;
+let textIndexContact = 0;
+let charIndexContact = 0;
+function berandaMengetik() {
+    if (charIndexBeranda < textsBeranda[textIndexBeranda].length) {
+        beranda_mengetik.innerHTML += textsBeranda[textIndexBeranda].charAt(charIndexBeranda);
+        charIndexBeranda++;
+        setTimeout(berandaMengetik, speed);
     } else {
-        setTimeout(eraseText, speed)
+        setTimeout(eraseTextBeranda, speed)
     }
 }
 
-function eraseText() {
-    if (charIndex > 0) {
-        textElement.innerHTML = texts[textIndex].substring(0, charIndex - 1);
-        charIndex--;
-        setTimeout(eraseText, speed);
+function eraseTextBeranda() {
+    if (charIndexBeranda > 0) {
+        beranda_mengetik.innerHTML = textsBeranda[textIndexBeranda].substring(0, charIndexBeranda - 1);
+        charIndexBeranda--;
+        setTimeout(eraseTextBeranda, speed);
     } else {
-        textIndex++;
-        if (textIndex >= texts.length) {
-            textIndex = 0;
+        textIndexBeranda++;
+        if (textIndexBeranda >= textsBeranda.length) {
+            textIndexBeranda = 0;
         }
-        setTimeout(typeWriter, speed + 1000);
+        setTimeout(berandaMengetik, speed + 1000);
     }
-
-    // if (textElement.innerHTML.length > 0) {
-    //     textElement.innerHTML = textElement.innerHTML.slice(0, -1);
-    //     settimeout(typeWriter, 50);
-    // } else {
-    //     textIndex = (textIndex + 1) % texts.length;
-    //     charIndex = 0;
-    //     setTimeout(typeWriter,500);
-    // }
 }
-window.onload = typeWriter;
 
+
+
+function contactMengetik() {
+    if (charIndexContact < textsContact[textIndexContact].length) {
+        contact_mengetik.innerHTML += textsContact[textIndexContact].charAt(charIndexContact);
+        charIndexContact++;
+        setTimeout(contactMengetik, speed);
+    } else {
+        setTimeout(eraseTextContact, speed)
+    }
+}
+
+function eraseTextContact() {
+    if (charIndexContact > 0) {
+        contact_mengetik.innerHTML = textsContact[textIndexContact].substring(0, charIndexContact - 1);
+        charIndexContact--;
+        setTimeout(eraseTextContact, speed);
+    } else {
+        textIndexContact++;
+        if (textIndexContact >= textsContact.length) {
+            textIndexContact = 0;
+        }
+        setTimeout(contactMengetik, speed + 1000);
+    }
+}
+
+
+window.onload = function() {
+    contactMengetik();
+    berandaMengetik();
+};
 
 document.addEventListener("DOMContentLoaded", function () {
     const menuToggle = document.getElementById("menu-toggle");
