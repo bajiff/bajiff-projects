@@ -12,7 +12,7 @@
   </head>
   <body>
     <!-- Header -->
-    <header>
+    <header class="contact-header">
       <a href="#" class="logo animasi-kanan">Kacirebonan</a>
 
       <input type="checkbox" id="menu-toggle" />
@@ -22,15 +22,15 @@
       </label>
 
       <nav class="nav-menu animasi-kiri">
-        <a href="../index.html">Beranda</a>
-        <a href="sejarah.html">Sejarah</a>
-        <a href="kesenian.html">Kesenian</a>
-        <a href="kuliner.html">Kuliner</a>
-        <a href="contact.html">Contact</a>
+        <a href="../index.html" target="_blank">Beranda</a>
+        <a href="sejarah.html" target="_blank">Sejarah</a>
+        <a href="kesenian.html" target="_blank">Kesenian</a>
+        <a href="kuliner.html" target="_blank">Kuliner</a>
+        <a href="contact.html" target="_blank" class="active">Contact</a>
       </nav>
     </header>
     <!-- End Header -->
-     
+
     <div class="contact-page">
       <div class="responsive-container-block big-container">
         <div class="responsive-container-block container">
@@ -43,9 +43,30 @@
               Web Developer
             </p>
             <p class="text-blk section-subhead">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam,
+              “Masa lalu adalah kode lama yang tak bisa kita
+              <a class="text-desc" target="_blank" href="https://sko.dev/wiki/rollback"
+                >rollback</a
+              >, Masa depan adalah
+              <a
+                class="text-desc" target="_blank"
+                href="https://www.w3schools.com/git/git_branch.asp"
+                >branch</a
+              >
+              yang belum kita
+              <a
+                class="text-desc" target="_blank"
+                href="https://minarsih.com/artikel/belajar-git-08-git-checkout"
+                >checkout</a
+              >, Tapi masa kini—adalah satu-satunya
+              <a class="text-desc" target="_blank" href="https://www.malasngoding.com/git-commit/"
+                >commit</a
+              >
+              yang menentukan arah seluruh project kehidupan.”
+              <i>
+                &ndash;
+                <a class="text-desc" target="_blank" href="https://instagram.com/_bajif">Bajif</a
+                >, Manusia biasa yang ingin mengukir sejarah.</i
+              >
             </p>
           </div>
           <div
@@ -63,6 +84,8 @@
                 type="text"
                 name="full-name"
                 placeholder="Fullname"
+                required
+                autofocus
               />
               <input
                 class="input input-element"
@@ -70,6 +93,8 @@
                 type="email"
                 name="email"
                 placeholder="Email"
+                required
+                autofocus
               />
               <input
                 class="input input-element"
@@ -77,19 +102,27 @@
                 type="text"
                 name="subject"
                 placeholder="Subject"
+                required
+                autofocus
               />
               <textarea
                 class="textinput input-element"
-                type="text"
                 name="message"
                 id="message"
                 placeholder="Message"
+                required
+                autofocus
               ></textarea>
               <button type="submit" class="contact-btn">Send</button>
             </form>
             <!-- Social Media -->
             <div class="contact-social-icons">
-              <a href="#sejarah" title="Sejarah" class="animasi-bawah">
+              <a
+                href="https://instagram.com/_bajif"
+                target="_blank"
+                title="_bajif"
+                class="animasi-bawah"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 448 512"
@@ -100,7 +133,12 @@
                   />
                 </svg>
               </a>
-              <a href="#kesenian" title="Kesenian" class="animasi-atas">
+              <a
+                href="https://github.com/bajiff"
+                title="bajiff"
+                target="_blank"
+                class="animasi-atas"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 496 512"
@@ -111,7 +149,12 @@
                   />
                 </svg>
               </a>
-              <a href="#kuliner" title="Kuliner" class="animasi-bawah">
+              <a
+                href="https://www.linkedin.com/in/bagus-aji-fernando-466347286/"
+                title="Bagus Aji Fernando"
+                target="_blank"
+                class="animasi-bawah"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 448 512"
@@ -122,7 +165,12 @@
                   />
                 </svg>
               </a>
-              <a href="#contact" title="Contact" class="animasi-atas">
+              <a
+                href="https://www.facebook.com/guster.guster.9619"
+                target="_blank"
+                title="Baji Ajalah"
+                class="animasi-atas"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 512 512"
@@ -136,8 +184,15 @@
             </div>
           </div>
         </div>
+        <footer>
+          <p>
+            &copy; 2025 <a href="https://instagram.com/_bajif" target="_blank" class="text-desc>Bajif</a>. All
+            rights reserved.
+          </p>
+        </footer>
       </div>
     </div>
+
     <script src="../js/script.js"></script>
   </body>
 </html>

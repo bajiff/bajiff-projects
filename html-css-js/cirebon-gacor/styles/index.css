@@ -5,8 +5,7 @@
   --primary: #fffee2;
   --secondary: #e30014;
   --tertiary: #e06e30;
-  --quarternary: #fdfcea;
-  --cobain: #fffee2;
+  --quarternary: #f3f2cf;
   --text: #162144;
   --logo-font: 'Playwrite DK Loopet',
     --nav-font: 'Ancizar Sans';
@@ -117,11 +116,6 @@ section p {
   align-items: center;
   gap: 2rem;
   background-color: var(--primary);
-  background-image: linear-gradient(to bottom,
-      var(--primary) 0%,
-      var(--primary) 80%,
-      var(--primary) 90%,
-      red 100%);
 }
 
 span {
@@ -367,7 +361,7 @@ span {
 /* Sejarah */
 #sejarah {
   background-image: url('/images/sejarah/wayang.png');
-  background-size: cover 100px;
+  background-color: var(--quarternary);
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -659,6 +653,12 @@ span {
 
 
 /* Contact */
+header, .contact-header.scrolled {
+    background-color: rgba(255, 255, 255, 0.141);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
+}
 
 /* Responsive */
 .wk-desk-1 {
@@ -911,16 +911,14 @@ span {
 .contact-page .text-blk.section-head {
   font-size: 60px;
   line-height: 65px;
-  margin-top: 0px;
-  margin-right: 0px;
-  margin-bottom: 24px;
-  margin-left: 0px;
+  margin: 0px 0px 24px 0px;
+  color: var(--text);
 }
 
 .contact-page .text-blk.section-subhead {
-  font-size: 14px;
+  font-size: 2rem;
   line-height: 18px;
-  color: #7e7e7e;
+  color: var(--text);
 }
 
 .contact-page .input {
@@ -990,8 +988,7 @@ span {
 }
 
 .contact-page .input-element {
-  background-color: #f3f2cf;
-}
+  background-color: var(--quarternary);}
 
 .contact-page .icon-block.social-icon {
   fill: #b0ab4d;
@@ -1095,11 +1092,10 @@ span {
 }
 
 
-
 /* End Contact */
 
 
-/* Mulai */
+/* Toggle Mobile */
 #menu-toggle {
   display: none;
 }
@@ -1115,8 +1111,18 @@ span {
 .hamburger span {
   transition: opacity 0.3s ease;
 }
+/* End Toggle Mobile */
 
-
+/* Footer */
+footer{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-style: italic;
+  color: var(--text);
+  font-size: 2rem;
+}
+/* End Footer */
 
 /* ---------- LAYAR KECIL / MOBILE (<= 995px) ---------- */
 @media (max-width: 995px) {
