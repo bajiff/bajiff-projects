@@ -1,3 +1,4 @@
+//  Beranda
 const textsBeranda = [
     "Generasi",
     "Aktif",
@@ -5,20 +6,11 @@ const textsBeranda = [
     "Optimis",
     "Religius"
 ]
-const textsContact = [
-    "Web Developer",
-    "Laravel Developer",
-]
-
 let speed = 100;
-const beranda_mengetik = document.querySelector(".mengetik-kata");
-const contact_mengetik = document.querySelector(".contact-mengetik");
-
+const beranda_mengetik = document.querySelector(".beranda-mengetik");
 
 let textIndexBeranda = 0;
 let charIndexBeranda = 0;
-let textIndexContact = 0;
-let charIndexContact = 0;
 function berandaMengetik() {
     if (charIndexBeranda < textsBeranda[textIndexBeranda].length) {
         beranda_mengetik.innerHTML += textsBeranda[textIndexBeranda].charAt(charIndexBeranda);
@@ -42,8 +34,17 @@ function eraseTextBeranda() {
         setTimeout(berandaMengetik, speed + 1000);
     }
 }
+//  End Beranda
 
 
+// Untuk Contact
+const textsContact = [
+    "Web Developer",
+    "Laravel Developer",
+]
+const contact_mengetik = document.querySelector(".contact-mengetik");
+let textIndexContact = 0;
+let charIndexContact = 0;
 
 function contactMengetik() {
     if (charIndexContact < textsContact[textIndexContact].length) {
@@ -68,13 +69,21 @@ function eraseTextContact() {
         setTimeout(contactMengetik, speed + 1000);
     }
 }
+// End Contact
 
 
-window.onload = function() {
-    contactMengetik();
-    berandaMengetik();
+// Onload mengetik beranda dan mengetik contact
+window.onload = function () {
+    if (document.querySelector(".beranda-mengetik")) {
+        berandaMengetik();
+    }
+    if (document.querySelector(".contact-mengetik")) {
+        contactMengetik();
+    }
 };
+// End Onload mengetik beranda dan mengetik contact
 
+// Toggle Mobile
 document.addEventListener("DOMContentLoaded", function () {
     const menuToggle = document.getElementById("menu-toggle");
     const navMenu = document.querySelector("nav");
@@ -89,8 +98,7 @@ document.addEventListener("DOMContentLoaded", function () {
             hamburger.classList.remove("active");
         }
     }
-
-    // Saat toggle diklik
+    // Kalo toggle diklik
     menuToggle.addEventListener("click", handleMenuToggle);
 
     // Reset saat resize ke desktop
@@ -102,6 +110,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
+// End Toggle Mobile
 
 // Kesenian
 let nextBtn = document.querySelector('.next'),
@@ -113,7 +122,6 @@ let nextBtn = document.querySelector('.next'),
 
 let timeRunning = 3000
 let timeAutoNext = 7000
-
 nextBtn.onclick = function () {
     showSlider('next')
 }
@@ -123,11 +131,9 @@ prevBtn.onclick = function () {
 }
 
 let runTimeOut
-
 let runNextAuto = setTimeout(() => {
     nextBtn.click()
 }, timeAutoNext)
-
 
 function resetTimeAnimation() {
     runningTime.style.animation = 'none'
@@ -146,7 +152,6 @@ function showSlider(type) {
         list.prepend(sliderItemsDom[sliderItemsDom.length - 1])
         carousel.classList.add('prev')
     }
-
     clearTimeout(runTimeOut)
 
     runTimeOut = setTimeout(() => {
@@ -154,22 +159,149 @@ function showSlider(type) {
         carousel.classList.remove('prev')
     }, timeRunning)
 
-
     clearTimeout(runNextAuto)
     runNextAuto = setTimeout(() => {
         nextBtn.click()
     }, timeAutoNext)
-
-    resetTimeAnimation() // Reset the running time animation
+    
+    
+    // Reset the running time animation
+    resetTimeAnimation()     
 }
 
-// Start the initial animation 
+// Menjalankan function animasi
 resetTimeAnimation()
 // End Kesenian
 
-// Scroll Biar ada 
-const header = document.querySelector("header");
+// Kuliner
+const kuliners = [
+	{ name: "Emily Kim", role: "Founder" },
+	{ name: "Michael Steward", role: "Creative Director" },
+	{ name: "Emma Rodriguez", role: "Lead Developer" },
+	{ name: "Julia Gimmel", role: "UX Designer" },
+	{ name: "Lisa Anderson", role: "Marketing Manager" },
+	{ name: "James Wilson", role: "Product Manager" }
+];
 
+const cards = document.querySelectorAll(".kuliner-card");
+const dots = document.querySelectorAll(".dot");
+const kulinerName = document.querySelector(".kuliner-name");
+const kulinerRole = document.querySelector(".kuliner-role");
+const leftArrow = document.querySelector(".kuliner-nav-arrow.left");
+const rightArrow = document.querySelector(".kuliner-nav-arrow.right");
+let currentIndex = 0;
+let isAnimating = false;
+
+function updateCarousel(newIndex) {
+	if (isAnimating) return;
+	isAnimating = true;
+
+	currentIndex = (newIndex + cards.length) % cards.length;
+
+	cards.forEach((card, i) => {
+		const offset = (i - currentIndex + cards.length) % cards.length;
+
+		card.classList.remove(
+			"center",
+			"left-1",
+			"left-2",
+			"right-1",
+			"right-2",
+			"hidden"
+		);
+
+		if (offset === 0) {
+			card.classList.add("center");
+		} else if (offset === 1) {
+			card.classList.add("right-1");
+		} else if (offset === 2) {
+			card.classList.add("right-2");
+		} else if (offset === cards.length - 1) {
+			card.classList.add("left-1");
+		} else if (offset === cards.length - 2) {
+			card.classList.add("left-2");
+		} else {
+			card.classList.add("hidden");
+		}
+	});
+
+	dots.forEach((dot, i) => {
+		dot.classList.toggle("active", i === currentIndex);
+	});
+
+	memberName.style.opacity = "0";
+	memberRole.style.opacity = "0";
+
+	setTimeout(() => {
+		memberName.textContent = kuliners[currentIndex].name;
+		memberRole.textContent = kuliners[currentIndex].role;
+		memberName.style.opacity = "1";
+		memberRole.style.opacity = "1";
+	}, 300);
+
+	setTimeout(() => {
+		isAnimating = false;
+	}, 800);
+}
+
+leftArrow.addEventListener("click", () => {
+	updateCarousel(currentIndex - 1);
+});
+
+rightArrow.addEventListener("click", () => {
+	updateCarousel(currentIndex + 1);
+});
+
+dots.forEach((dot, i) => {
+	dot.addEventListener("click", () => {
+		updateCarousel(i);
+	});
+});
+
+cards.forEach((card, i) => {
+	card.addEventListener("click", () => {
+		updateCarousel(i);
+	});
+});
+
+document.addEventListener("keydown", (e) => {
+	if (e.key === "ArrowLeft") {
+		updateCarousel(currentIndex - 1);
+	} else if (e.key === "ArrowRight") {
+		updateCarousel(currentIndex + 1);
+	}
+});
+
+let touchStartX = 0;
+let touchEndX = 0;
+
+document.addEventListener("touchstart", (e) => {
+	touchStartX = e.changedTouches[0].screenX;
+});
+
+document.addEventListener("touchend", (e) => {
+	touchEndX = e.changedTouches[0].screenX;
+	handleSwipe();
+});
+
+function handleSwipe() {
+	const swipeThreshold = 50;
+	const diff = touchStartX - touchEndX;
+
+	if (Math.abs(diff) > swipeThreshold) {
+		if (diff > 0) {
+			updateCarousel(currentIndex + 1);
+		} else {
+			updateCarousel(currentIndex - 1);
+		}
+	}
+}
+
+updateCarousel(0);
+// End Kuliner
+
+// Scroll Header Transparan
+const header = document.querySelector("header");
 window.addEventListener("scroll", () => {
     if (window.scrollY > 50) {
         header.classList.add("scrolled");
@@ -177,3 +309,4 @@ window.addEventListener("scroll", () => {
         header.classList.remove("scrolled");
     }
 });
+// End Scroll Header Transparan
