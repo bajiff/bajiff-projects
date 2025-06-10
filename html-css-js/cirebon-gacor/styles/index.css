@@ -502,7 +502,12 @@ span {
 
 
 .carousel .list .item:nth-child(2) .content .des {
-  color: var(--text);
+  color: black;
+  text-transform: uppercase;
+  font-weight: bold;
+  line-height: 1;
+  text-shadow: .5px .5px .5px white;
+  opacity: 0;
 
 }
 
@@ -543,8 +548,6 @@ span {
   animation: geserKanan 1s ease-in-out 0.5s 1 forwards;
 }
 
-
-
 .content .name {
   color: var(--tertiary);
   font-size: 70px;
@@ -566,9 +569,7 @@ span {
   animation: geserKanan 1s ease 1.5s 1 forwards;
   z-index: 1000;
 
-
 }
-
 
 .content button {
   display: inline-block;
@@ -600,7 +601,13 @@ span {
   box-shadow: 0 0 25px var(--tertiary);
 
 }
-
+/* Responsive */
+/* Nyampe Sini baru di commit */
+@media(max-width: 768px) {
+  .content{
+    padding: 0px 20px;
+  }
+}
 /* Carousel */
 
 /* next prev arrows */
@@ -950,8 +957,6 @@ header,
   text-shadow: 0 0 5px var(--tertiary);
 }
 
-
-
 .contact-mengetik::after {
   content: '';
   display: inline-block;
@@ -962,7 +967,6 @@ header,
 }
 
 /* Responsive */
-/* Width in 1/12 increments */
 .wk-desk-1 {
   width: 8.333333%;
 }
@@ -1010,7 +1014,6 @@ header,
 .wk-desk-12 {
   width: 100%;
 }
-
 
 @media (max-width: 1024px) {
   .wk-ipadp-1 {
@@ -1113,8 +1116,6 @@ header,
 }
 
 @media (max-width: 500px) {
-
-
   .wk-mobile-1 {
     width: 8.333333%;
   }
@@ -1188,7 +1189,6 @@ header,
 
 
 .contact-page .contact-container {
-
   height: fit-content;
   width: 100%;
   display: flex;
@@ -1204,7 +1204,7 @@ header,
   justify-content: center;
   align-items: center;
   height: 100vh;
-  padding: 50px;
+  margin: 70px 0px;
   background-color: var(--primary);
 }
 
@@ -1311,100 +1311,70 @@ header,
 }
 
 @media (max-width: 1024px) {
-  .contact-page .section-head {
-    font-size: 55px;
-    line-height: 60px;
+  .contact-page .contact-container.container {
+    max-width: 90%;
+    padding: 0 20px;
   }
 
-  .contact-page .contact-container.container {
-    justify-content: space-between;
+  .contact-social-icons {
+    justify-content: center;
   }
 }
 
 @media (max-width: 768px) {
-  .contact-page .responsive-cell-block.wk-tab-12.wk-mobile-12.wk-ipadp-6.wk-desk-5 {
-    margin-top: 0px;
-    margin-right: 0px;
-    margin-bottom: 80px;
-    margin-left: 0px;
-  }
-
-  .contact-page .responsive-cell-block.wk-mobile-12.wk-ipadp-6.wk-desk-5.wk-tab-10 {
-    margin-top: 0px;
-    margin-right: 0px;
-    margin-bottom: 80px;
-    margin-left: 0px;
-    text-align: center;
-  }
-
-  .contact-page .input {
-    height: 45px;
+  .contact-page .contact-container.big-container {
+    margin: 60px 0;
+    padding: 0 20px;
   }
 
   .contact-page .contact-container.container {
-    justify-content: space-evenly;
-    margin-top: 80px;
-    margin-right: 0px;
-    margin-bottom: 80px;
-    margin-left: 0px;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 3rem;
   }
 
-  .contact-page .responsive-cell-block.wk-mobile-12.wk-desk-5.wk-tab-10.wk-ipadp-5 {
-    margin-top: 0px;
-    margin-right: 0px;
-    margin-bottom: 80px;
-    margin-left: 0px;
+  .contact-page .responsive-cell-block {
+    width: 100% !important;
+    padding: 0;
+    margin-bottom: 2rem;
   }
 
+  .contact-page .section-subhead {
+    text-align: left;
+  }
 
+  .contact-social-icons {
+    justify-content: center;
+  }
 }
 
 @media (max-width: 500px) {
+  .contact-page .contact-container.big-container {
+    padding: 50px 15px;
+    margin: 30px 0;
+  }
+
   .contact-page .section-head {
-    font-size: 40px;
-    line-height: 45px;
+    font-size: 45px;
+    line-height: 35px;
   }
 
-  .contact-page .contact-container.big-container {
-    padding-top: 0px;
-    padding-right: 20px;
-    padding-bottom: 0px;
-    padding-left: 20px;
+  .contact-mengetik {
+    font-size: 3.5rem;
   }
 
-  .contact-page .input {
-    height: 40px;
+  .contact-page .contact-container.container {
+    gap: 2rem;
   }
 
-  .contact-page .responsive-cell-block.wk-tab-12.wk-mobile-12.wk-ipadp-6.wk-desk-5 {
-    margin-top: 0px;
-    margin-right: 0px;
-    margin-bottom: 80px;
-    margin-left: 0px;
+  .contact-social-icons {
+    gap: 1rem;
   }
 
-  .contact-page .responsive-cell-block.wk-mobile-12.wk-ipadp-6.wk-desk-5.wk-tab-10 {
-    text-align: left;
-    padding-top: 0px;
-    padding-right: 20px;
-    padding-bottom: 0px;
-    padding-left: 20px;
+  .contact-btn:hover {
+    transform: translateY(-1px) scale(1.01);
   }
-
-  .contact-page .contact-container.big-container {
-    padding-top: 0px;
-    padding-right: 30px;
-    padding-bottom: 0px;
-    padding-left: 30px;
-  }
-
-  .contact-page .responsive-cell-block.wk-mobile-12.wk-desk-5.wk-tab-10.wk-ipadp-5 {
-    padding-top: 0px;
-    padding-right: 20px;
-    padding-bottom: 0px;
-    padding-left: 20px;
-  }
-
 
 
 }
@@ -1440,6 +1410,7 @@ footer {
   font-style: italic;
   color: var(--text);
   font-size: 2rem;
+  margin-bottom: 50px;
 }
 
 /* End Footer */
