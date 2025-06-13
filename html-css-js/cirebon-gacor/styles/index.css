@@ -601,13 +601,15 @@ span {
   box-shadow: 0 0 25px var(--tertiary);
 
 }
+
 /* Responsive */
 /* Nyampe Sini baru di commit */
 @media(max-width: 768px) {
-  .content{
+  .content {
     padding: 0px 20px;
   }
 }
+
 /* Carousel */
 
 /* next prev arrows */
@@ -1226,12 +1228,12 @@ header,
   color: var(--text);
 }
 
-.contact-page .text-desc {
+.text-desc {
   color: var(--tertiary);
   transition: color ease-in-out 0.3s;
 }
 
-.contact-page .text-desc:hover {
+.text-desc:hover {
   color: var(--secondary);
   text-decoration: underline;
 }
@@ -1316,6 +1318,12 @@ header,
     padding: 0 20px;
   }
 
+  .contact-page .section-head {
+    font-size: 50px;
+    line-height: 35px;
+  }
+
+
   .contact-social-icons {
     justify-content: center;
   }
@@ -1323,8 +1331,8 @@ header,
 
 @media (max-width: 768px) {
   .contact-page .contact-container.big-container {
-    margin: 60px 0;
-    padding: 0 20px;
+    padding: 50px 15px;
+    margin: 30px 0;
   }
 
   .contact-page .contact-container.container {
@@ -1340,8 +1348,13 @@ header,
     margin-bottom: 2rem;
   }
 
-  .contact-page .section-subhead {
-    text-align: left;
+  .contact-page .section-head {
+    font-size: 45px;
+    line-height: 35px;
+  }
+
+  .contact-mengetik {
+    font-size: 3.5rem;
   }
 
   .contact-social-icons {
@@ -1375,8 +1388,6 @@ header,
   .contact-btn:hover {
     transform: translateY(-1px) scale(1.01);
   }
-
-
 }
 
 
