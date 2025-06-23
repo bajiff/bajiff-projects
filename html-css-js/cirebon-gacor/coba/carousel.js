@@ -1,6 +1,6 @@
 let items = document.querySelectorAll('.slider .item');
-    let next = document.getElementById('next');
-    let prev = document.getElementById('prev');
+    let next = document.getElementById('kuliner-next');
+    let prev = document.getElementById('kuliner-prev');
     
     let active = 3;
     function loadShow(){
