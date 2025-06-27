@@ -1,4 +1,4 @@
-let items = document.querySelectorAll('.slider .item');
+let items = document.querySelectorAll('.slider .slider-item');
     let next = document.getElementById('kuliner-next');
     let prev = document.getElementById('kuliner-prev');
     

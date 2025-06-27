@@ -7,6 +7,10 @@
   --tertiary: #e06e30;
   --quarternary: #f3f2cf;
   --text: #162144;
+  --bg-kuliner-carousel-top:#fffee2;
+  --bg-kuliner-carousel-bottom: #e06e307a;
+  --bg-kuliner-button: rgb(196, 82, 21);
+
   --logo-font: 'Playwrite DK Loopet',
     --nav-font: 'Ancizar Sans';
   --body-font: 'Barlow Condensed';
@@ -35,7 +39,6 @@ body {
   height: 100vh;
   color: var(--text);
   overflow-x: hidden;
-  background-color: var(--primary);
 }
 
 body::selection {
@@ -669,278 +672,166 @@ span {
 /* End Kesenian */
 
 /* Kuliner */
-.kuliner-container {
+
+.slider-container {
+  background-image:
+    linear-gradient(to top, var(--bg-kuliner-carousel-bottom), var(--bg-kuliner-carousel-top));
+  box-sizing: border-box;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background-color: #f5f5f5;
-  overflow: hidden;
-}
-
-.kuliner-title {
-  font-size: 7.5rem;
-  font-weight: 900;
-  text-transform: uppercase;
-  letter-spacing: -0.02em;
-  position: absolute;
-  top: 45px;
-  left: 50%;
-  transform: translateX(-50%);
-  pointer-events: none;
-  white-space: nowrap;
-  font-family: var(--body-font);
-  background: linear-gradient(to bottom,
-      rgb(8 42 123 / 35%) 30%,
-      rgb(255 255 255 / 0%) 76%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-
-.kuliner-carousel {
-  width: 100%;
-  max-width: 1200px;
-  height: 450px;
-  position: relative;
-  perspective: 1000px;
-  margin-top: 80px;
-}
-
-.kuliner-carousel-track {
-  width: 100%;
-  height: 100%;
+  margin: 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  position: relative;
-  transform-style: preserve-3d;
-  transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-.kuliner-card {
-  position: absolute;
-  width: 280px;
-  height: 380px;
-  background: white;
-  border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  cursor: pointer;
 }
 
-.kuliner-card img {
+.slider {
+  position: relative;
   width: 100%;
-  height: 100%;
+  height: 370px;
+}
+
+.slider-item {
+  font-size: 1.7rem;
+  overflow: hidden;
+  position: absolute;
+  width: 240px;
+  height: 370px;
+  text-align: justify;
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  transition: all ease-in-out 0.2s;
+  left: calc(50% - 110px);
+  top: 0;
+  box-shadow: 0 0 10px var(--tertiary);
+}
+
+.slider-item:hover {
+  box-shadow: 0 0 10px var(--tertiary);
+  transition: all ease-in-out;
+  animation: pulse 1s infinite;
+}
+
+.slider-item-img {
   object-fit: cover;
-  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  width: 75%;
+  display: block;
+  margin: 0 auto;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(30, 20, 30, 10);
 }
 
-.kuliner-card.center {
-  z-index: 10;
-  transform: scale(1.1) translateZ(0);
-}
-
-.kuliner-card.center img {
-  filter: none;
-}
-
-.kuliner-card.left-2 {
-  z-index: 1;
-  transform: translateX(-400px) scale(0.8) translateZ(-300px);
-  opacity: 0.7;
-}
-
-.kuliner-card.left-2 img {
-  filter: grayscale(100%);
-}
-
-.kuliner-card.left-1 {
-  z-index: 5;
-  transform: translateX(-200px) scale(0.9) translateZ(-100px);
-  opacity: 0.9;
-}
-
-.kuliner-card.left-1 img {
-  filter: grayscale(100%);
-}
-
-.kuliner-card.right-1 {
-  z-index: 5;
-  transform: translateX(200px) scale(0.9) translateZ(-100px);
-  opacity: 0.9;
-}
-
-.kuliner-card.right-1 img {
-  filter: grayscale(100%);
-}
-
-.kuliner-card.right-2 {
-  z-index: 1;
-  transform: translateX(400px) scale(0.8) translateZ(-300px);
-  opacity: 0.7;
-}
-
-.kuliner-card.right-2 img {
-  filter: grayscale(100%);
-}
-
-.kuliner-card.hidden {
-  opacity: 0;
-  pointer-events: none;
-}
-
-.kuliner-info {
+.slider-item-title {
+  padding: 5px 0;
+  display: block;
+  font-size: 30px;
+  color: var(--tertiary);
+  cursor: pointer;
   text-align: center;
-  margin-top: 40px;
-  transition: all 0.5s ease-out;
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  transition: text-decoration-color 0.2s ease-out;
 }
 
-.kuliner-name {
-  color: rgb(8, 42, 123);
-  font-size: 2.5rem;
-  font-weight: 700;
-  margin-bottom: 10px;
-  position: relative;
-  display: inline-block;
+.slider-item-title:hover {
+  text-decoration-color: var(--tertiary);
+  color: var(--bg-kuliner-button);
 }
 
-.kuliner-name ::before,
-.kuliner-name ::after {
-  content: "";
+.slider-item:hover .slider-item-button {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.slider-item-button {
   position: absolute;
-  top: 100%;
-  width: 100px;
-  height: 2px;
-  background: rgb(8, 42, 123);
-}
-
-.kuliner-name::before {
-  left: -120px;
-}
-
-.kuliner-name::after {
-  right: -120px;
-}
-
-.kuliner-role {
-  color: #848696;
-  font-size: 1.5rem;
-  font-weight: 500;
-  opacity: 0.8;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  padding: 10px 0;
-  margin-top: -15px;
-  position: relative;
-}
-
-.dots {
+  bottom: 16px;
+  left: 0;
+  right: 0;
   display: flex;
   justify-content: center;
-  gap: 10px;
-  margin-top: 60px;
+  transform: translateY(20px);
+  opacity: 0;
+  transition: transform 0.4s ease, opacity 0.4s ease;
 }
 
-.dot {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background: rgba(8, 42, 123, 0.2);
+.slider-item-button a {
+  padding: 8px 16px;
+  background-color: var(--tertiary);
+  color: white;
+  border: none;
+  border-radius: 6px;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: background-color 0.3s ease;
 }
 
-.dot.active {
-  background: rgb(8, 42, 123);
-  transform: scale(1.2);
+.slider-item-button a:hover {
+  background-color: var(--bg-kuliner-button);
+  animation: pulse 1s infinite;
+  transition: background-color 0.3s ease;
 }
 
-.kuliner-nav-arrow {
+/* Tombol next dan prev untuk carousel kuliner */
+#kuliner-next,
+#kuliner-prev {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(8, 42, 123, 0.6);
-  color: white;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  z-index: 20;
-  transition: all 0.3s ease;
-  font-size: 1.5rem;
+  color: var(--primary);
+  background-image:
+    linear-gradient(to top, var(--tertiary), var(--bg-kuliner-carousel-bottom));
+  /* semi transparan */
   border: none;
-  outline: none;
-  padding-bottom: 4px;
+  font-size: 2.5rem;
+  font-family: monospace;
+  font-weight: bold;
+  padding: 2rem;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background-color 0.3s ease-in-out;
+  opacity: 0.8;
+  z-index: 2;
 }
 
-.kuliner-nav-arrow:hover {
-  background: rgba(0, 0, 0, 0.8);
-  transform: translateY(-50%) scale(1.1);
+#kuliner-prev {
+  left: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
-.kuliner-nav-arrow.left {
-  left: 20px;
-  padding-right: 3px;
+#kuliner-prev:hover {
+  background-color: var(--tertiary);
+  transition: background-color 0.3s ease-in-out;
+  opacity: 0.9;
 }
 
-.kuliner-nav-arrow.right {
-  right: 20px;
-  padding-left: 3px;
+#kuliner-prev:active {
+  background-color: var(--tertiary);
+  transition: background-color 0.3s ease-in-out;
+  box-shadow: 0 4px 6px rgba(195, 86, 86, 0.3);
+  opacity: 1;
 }
 
-@media (max-width: 768px) {
-  .about-title {
-    font-size: 4.5rem;
-  }
-
-  .card {
-    width: 200px;
-    height: 280px;
-  }
-
-  .card.left-2 {
-    transform: translateX(-250px) scale(0.8) translateZ(-300px);
-  }
-
-  .card.left-1 {
-    transform: translateX(-120px) scale(0.9) translateZ(-100px);
-  }
-
-  .card.right-1 {
-    transform: translateX(120px) scale(0.9) translateZ(-100px);
-  }
-
-  .card.right-2 {
-    transform: translateX(250px) scale(0.8) translateZ(-300px);
-  }
-
-  .member-name {
-    font-size: 2rem;
-  }
-
-  .member-role {
-    font-size: 1.2rem;
-  }
-
-  .member-name::before,
-  .member-name::after {
-    width: 50px;
-  }
-
-  .member-name::before {
-    left: -70px;
-  }
-
-  .member-name::after {
-    right: -70px;
-  }
+#kuliner-next {
+  right: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
+
+#kuliner-next:hover {
+  background-color: var(--tertiary);
+  transition: background-color 0.3s ease-in-out;
+  opacity: 0.9;
+}
+
+#kuliner-next:active {
+  background-color: var(--tertiary);
+  transition: background-color 0.3s ease-in-out;
+  box-shadow: 0 4px 6px rgba(195, 86, 86, 0.3);
+  opacity: 1;
+}
+
+/* Tombol next dan prev untuk carousel kuliner */
+
 
 /* End Kuliner */
 
@@ -1679,4 +1570,19 @@ footer {
     width: 100%;
   }
 
+}
+
+/* Keyframes untuk animasi pulse kuliner */
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 10px var(--primary);
+  }
+
+  50% {
+    box-shadow: 0 0 30px var(--tertiary);
+  }
+
+  100% {
+    box-shadow: 0 0 10px var(--primary);
+  }
 }

@@ -1,0 +1,290 @@
+@import url('https://fonts.googleapis.com/css2?family=Ancizar+Sans:ital,wght@0,100..1000;1,100..1000&family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Playwrite+DK+Loopet:wght@100..400&display=swap');
+
+:root {
+    --primary:
+        #fffee2;
+    --secondary:
+        #e30014;
+    --tertiary:
+        #e06e30;
+    --quarternary:
+        #f3f2cf;
+    --text:
+        #162144;
+    --bg-kuliner-carousel-top:
+        #fffee2;
+    --bg-kuliner-carousel-bottom: #e06e307a;
+    --bg-kuliner-button: rgb(196, 82, 21);
+    --logo-font: 'Playwrite DK Loopet',
+        --nav-font: 'Ancizar Sans';
+    --body-font: 'Barlow Condensed';
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    list-style-type: none;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    font-family: var(--body-font);
+    scroll-behavior: smooth;
+}
+
+
+.gacor-container {
+    width: 100%;
+    height: 100vh;
+}
+
+.header {
+    margin: 50px 20px;
+    background-color: blue;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    text-align: center;
+    flex-wrap: wrap;
+}
+
+.isi {
+    box-shadow: 3px 3px 5px black;
+    background-color: red;
+    padding: 30px;
+    color: white;
+}
+
+.isi2 {
+    box-shadow: 3px 3px 5px black;
+    background-color: yellow;
+    padding: 30px;
+}
+
+.isi3 {
+    box-shadow: 3px 3px 5px black;
+    background-color: green;
+    padding: 30px;
+    color: white;
+}
+
+.main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-wrap: wrap;
+    background-color: cyan;
+}
+
+.makanan {
+    padding: 50px;
+    box-shadow: 3px 3px 5px green;
+    background-color: tomato;
+    color: white;
+    margin: 0px 30px;
+}
+
+.minuman {
+    padding: 50px;
+    box-shadow: 3px 3px 5px green;
+    background-color: chartreuse;
+    color: white;
+    margin: 0px 30px;
+}
+
+
+.about {
+    margin: 50px 0;
+    background-color: red;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+}
+
+.rumah {
+    padding: 30px;
+    margin: 50px 30px;
+    box-shadow: 3px 3px 5px gray;
+    color: white;
+    background-color: teal;
+}
+
+.kontrakan {
+    padding: 30px;
+    margin: 50px 30px;
+    box-shadow: 3px 3px 5px gray;
+    color: white;
+    background-color: burlywood;
+}
+
+.apartemen {
+    padding: 30px;
+    margin: 50px 30px;
+    box-shadow: 3px 3px 5px gray;
+    color: white;
+    background-color: blueviolet;
+}
+
+
+.index-footer {
+    background: linear-gradient(to right, var(--secondary), var(--tertiary));
+    border-top-left-radius: 100px;
+}
+
+.index-footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 50px 70px;
+}
+
+.index-footer-col {
+    width: 25%;
+    margin: 0 10px 0 0;
+
+}
+
+.index-footer-col-my-address {
+    width: 20%;
+}
+
+.index-footer-col-menu {
+    width: 10%;
+}
+
+.index-footer-menu-list,
+a {
+    color: var(--text);
+}
+
+.index-footer-col h2 {
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+p.email {
+    display: block;
+    margin: 10px 0;
+    cursor: pointer;
+}
+
+a.phone {
+    color: var(--text);
+    display: block;
+    font-size: 19px;
+    font-weight: 400;
+}
+
+.underline {
+    width: 70px;
+    height: 3px;
+    position: relative;
+    background-color: white;
+    margin-top: 5px;
+    margin-bottom: 20px;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.underline span {
+    width: 5px;
+    height: 100%;
+    position: absolute;
+    left: 10px;
+    background-color: rgb(63, 63, 63);
+    border-radius: 3px;
+    animation: moving 1.5s linear infinite;
+}
+
+@keyframes moving {
+    0% {
+        left: -20px;
+    }
+
+    100% {
+        left: 100%;
+    }
+}
+
+.index-footer-col .index-footer-social-icons i {
+    border: 0.2rem solid var(--tertiary);
+    font-size: 16px;
+    text-align: center;
+    border-radius: 50%;
+    margin: 3rem 1.5rem 3rem 0;
+    transition: 0.3s ease;
+    color: var(--tertiary);
+    padding: 10px;
+    background-color: white;
+    color: #00093c;
+    border-radius: 50%;
+    margin: 5px;
+}
+
+@media screen and (max-width: 640px) {
+    /* .header {
+        flex-direction: column;
+    } */
+
+    .isi,
+    .isi2,
+    .isi3 {
+        margin: 20px 0px;
+    }
+
+    /* 
+    .main {
+        flex-direction: column;
+    } */
+
+    .makanan,
+    .minuman {
+        padding: 30px;
+        margin: 30px 0px;
+    }
+
+    .index-footer-container {
+        flex-direction: column;
+    }
+
+    .index-footer-col {
+        width: 100%;
+        margin: 10px 0;
+    }
+
+    .footer-title {
+        font-size: 21px;
+    }
+
+    .footer-p {
+        font-size: 20px;
+    }
+
+    .index-footer-col-my-address {
+        margin: 10px 0;
+        width: 80%;
+    }
+}
+
+@media screen and (min-width: 641px) and (max-width:768px) {
+    .index-footer-container {
+        padding: 50px 0px;
+        justify-content: center;
+        display: flex;
+        flex-direction: row;
+    }
+
+    .index-footer-col {
+        width: 20%;
+        margin: 0 30px;
+    }
+
+    .index-footer-col-my-address {
+        width: 20%;
+    }
+}
+
+@media screen and (min-width:769px) {}
