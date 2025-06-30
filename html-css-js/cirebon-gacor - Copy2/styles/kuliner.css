@@ -30,9 +30,10 @@ body {
     font: normal 16px/1.5 "Helvetica Neue", sans-serif;
     color: #fff;
     overflow-x: hidden;
-    padding-bottom: 50px;
 }
 
+/* Header */
+/* End Header */
 
 /* INTRO SECTION
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
@@ -180,6 +181,23 @@ time {
     opacity: 1;
 }
 
+.text-kuliner img {
+    display: flex;
+    margin: auto;
+    width: 50%;
+    border-radius: 10px;
+    box-shadow: 3px 3px 5px black;
+}
+
+.contact-footer {
+    background-color: var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-style: italic;
+    color: var(--text);
+    font-size: 2rem;
+}
 
 /* GENERAL MEDIA QUERIES
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
@@ -214,7 +232,6 @@ time {
         border-color: transparent #f45b69 transparent transparent;
     }
 }
-
 
 /* EXTRA/CLIP PATH STYLES
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
